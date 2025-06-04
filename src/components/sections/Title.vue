@@ -7,7 +7,7 @@ import { Document, Files, MagicStick, Picture, DataAnalysis, Film } from '@eleme
 const logo = './logo.png'
 
 // 标题
-const title = 'Academic Project Page Template'
+const title = 'Masking Cascaded Self-Attentions for Few-Shot Font-Generation Transformer'
 
 // 标题颜色
 const title_color = '#000000'
@@ -24,22 +24,22 @@ const btn_color = '#444444'
 // 作者清单（包含作者姓名、头像、主页、地址序号）
 const authors = [
   {
-    name: "Your Name",
-    icon: "./icon/junyaohu.jpg",
-    homepage: "https://junyaohu.github.io/",
+    name: "Jing Ma",
+    // icon: "./icon/junyaohu.jpg",
+    homepage: "https://jimm0011.github.io/",
+    address_flag: "1"
+  },
+  {
+    name: "Xiang Xiang",
+    // icon: "./icon/anya.jpg",
+    homepage: "https://eglxiang.github.io/",
     address_flag: "1,#"
   },
   {
-    name: "Anya Forger",
-    icon: "./icon/anya.jpg",
-    homepage: "https://www.bilibili.com/video/BV1jv4y1P7Bb",
-    address_flag: "2,#"
-  },
-  {
-    name: "BugCat Capoo",
-    icon: "./icon/capoo.webp",
-    homepage: "https://zh.moegirl.org.cn/%E7%8C%AB%E7%8C%AB%E8%99%AB%E5%92%96%E6%B3%A2",
-    address_flag: "1,*"
+    name: "Yan He",
+    // icon: "./icon/capoo.webp",
+    // homepage: "https://zh.moegirl.org.cn/%E7%8C%AB%E7%8C%AB%E8%99%AB%E5%92%96%E6%B3%A2",
+    address_flag: "1"
   },
 ]
 
@@ -47,78 +47,40 @@ const authors = [
 const addresses = [
   {
     address_flag: "1",
-    name: "Home University",
-    icon: "./icon/home.png",
-    homepage: "https://github.com/hmuniversity"
-  },
-  {
-    address_flag: "2",
-    name: "IKUN University",
-    icon: "./icon/ikun.avif",
-    homepage: "https://www.bilibili.com/video/BV178411Y7QB"
+    name: "Huazhong University of Science and Technology (HUST)",
+    // icon: "./icon/home.png",
+    homepage: "https://www.hust.edu.cn/"
   },
 ]
 
 // 共一和通讯提示
 const con_and_corresponding_author = 
-  "#: Equal Contribution. *: Corresponding Author."
+  "*: Equal Contribution. #: Corresponding Author."
 
 // 最新消息
 const news = "🔥 [2024-12-15] This template project is still under development."
 
 // 强调内容
 const emphases = [
-  "🎉 [ABCD 2024] Poster",
-  "🥰 欢迎关注“减论”微信公众号/B站/知乎/小红书",
-  "传递人工智能算法科普教育的减约理解",
-  "提升信息效率及认知维度"
+//   "🎉 [ABCD 2024] Poster",
+//   "🥰 欢迎关注“减论”微信公众号/B站/知乎/小红书",
+//   "传递人工智能算法科普教育的减约理解",
+//   "提升信息效率及认知维度"
 ]
 
 // 提供引导资料链接
 const buttons = [
   {
-    disabled: true,
+    disabled: false,
     name: "Paper",
+    link: "https://openaccess.thecvf.com/content/ACCV2024/html/Ma_Masking_Cascaded_Self-Attentions_for_Few-Shot_Font-Generation_Transformer_ACCV_2024_paper.html",
     component: Document,
-  },
-  {
-    disabled: true,
-    name: "中译版",
-    component: Document,
-  },
-  {
-    disabled: false,
-    name: "Code",
-    link: "https://github.com/JunyaoHu/academic-project-page-template-vue",
-    component: Files,
-  },
-  {
-    disabled: false,
-    name: "Demo",
-    link: "https://junyaohu.github.io/academic-project-page-template-vue",
-    component: MagicStick,
   },
   {
     disabled: true,
     name: "Poster",
+    link: "",
     component: Picture,
-  },
-  {
-    disabled: true,
-    name: "Slide",
-    component: DataAnalysis,
-  },
-  {
-    disabled: false,
-    name: "Video (减论)",
-    link: "https://www.bilibili.com/video/BV15XkgYiE73/",
-    component: Film,
-  },
-  {
-    disabled: false,
-    name: "Video (Tutorial)",
-    link: "https://www.bilibili.com/video/BV1oUrfYzEqZ",
-    component: Film,
   },
 ]
 
@@ -130,28 +92,28 @@ const buttons = [
     <!-- 最新消息提示 -->
     <el-row justify="center">
       <el-col :span="24">
-        <el-alert title="🔥 This template is still under development." type="success" />
+        <el-alert title="🔥 This page is still under development." type="success" />
       </el-col>
     </el-row>
 
     <!-- 文章logo -->
-    <el-row v-if="logo" justify="center">
+    <!-- <el-row v-if="logo" justify="center">
       <el-image :src="logo" class="logo" fit="cover" />
-    </el-row>
+    </el-row> -->
 
     <!-- 文章标题 -->
     <el-row justify="center">
       <el-col :span="20">
         <h1 class="paper-title">
           <span v-if="title" :style="{color:title_color}"> {{ title }}</span>
-          <span v-if="title_supp" :style="{color:title_supp_color}"> {{ title_supp }}</span>
+          <!-- <span v-if="title_supp" :style="{color:title_supp_color}"> {{ title_supp }}</span> -->
         </h1>
       </el-col>
     </el-row>
 
     <!-- 作者名单 -->
     <el-row justify="center">
-      <a :href=author.homepage v-for="author in authors">
+      <a :href=author.homepage v-for="author in authors" target="_blank">
         <el-button class="title-button" type="primary" text>
           <el-avatar v-if="author.icon" :size="40" :src="author.icon" />
           <span class="author">
@@ -163,7 +125,7 @@ const buttons = [
 
     <!-- 地址名单 -->
     <el-row justify="center">
-      <a :href=address.homepage v-for="address in addresses">
+      <a :href=address.homepage v-for="address in addresses" target="_blank">
         <el-button class="title-button" type="primary" text>
           <el-avatar v-if="address.icon" :size="40" :src="address.icon" />
           <span class="address">
@@ -187,7 +149,7 @@ const buttons = [
     <el-row justify="center" style="margin-bottom: 20px;">
       <el-col :span="20">
         <el-row justify="center">
-          <a :href=button.link v-for="button in buttons">
+          <a :href=button.link v-for="button in buttons" target="_blank">
             <el-button class="guidance-button" size="default" :color="btn_color" :disabled="button.disabled" round>
               <el-icon :size="18">
                 <component :is="button.component" />
